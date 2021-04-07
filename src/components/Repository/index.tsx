@@ -5,7 +5,7 @@ export function Repository() {
   return ( 
       <Repositories>
          <form>
-          <input placeholder="Digite o nome do repositório" />
+          <input placeholder="Digite o nome do usuário" />
           <button type="submit">Pesquisar</button>
         </form>
         

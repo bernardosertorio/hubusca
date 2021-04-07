@@ -8,7 +8,6 @@ export const Repositories = styled.div`
   form {
     margin-top: 40px;
     max-width: 700px;
-
     display: flex;
 
     input {
@@ -47,7 +46,7 @@ export const Repositories = styled.div`
     padding: 24px;
     display: block;
     text-decoration: none;
-    margin-top: 30px;
+    margin-top: 80px;
 
     display: flex;
     align-items: center;

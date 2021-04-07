@@ -6,14 +6,13 @@ export const Container = styled.header`
   max-width: 450px;
   line-height: 56px;
 
-  margin-top: 80px;
+  margin-top: 60px;
 
   h1 {
     font-size: 20px;
-    margin-top: 20px;
   }
 
   h2 {
-    
+    font-size: 50px; 
   }
 `;
