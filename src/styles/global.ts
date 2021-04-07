@@ -4,7 +4,7 @@ import githubBackground from '../assets/github-background.svg';
 
 export const GlobalStyle = createGlobalStyle`
   :root {
-    --background: #F0F0F5
+    --background-color: #F2F2FA
   }
 
   * {
@@ -25,7 +25,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: var(---background) url(${githubBackground}) no-repeat 70% top;
+    background: var(--background-color) url(${githubBackground}) no-repeat 70% top;
     -webkit-font-smoothing: antialiased;
   }
 
