@@ -52,4 +52,4 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0 auto;
     padding: 40px 20px;
   }
-`
+`;
