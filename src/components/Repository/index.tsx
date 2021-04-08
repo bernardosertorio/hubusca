@@ -2,6 +2,8 @@ import { useState, FormEvent } from 'react';
 import { Repositories } from './styles';
 import { FiChevronRight } from 'react-icons/fi';
 
+import { Error } from './styles';
+
 import api from '../../services/api';
 
 interface UserRepository {
@@ -14,16 +16,27 @@ interface UserRepository {
 export function Repository() {
   const [newIpuntUserName, setNewInputUserName] = useState('');
   const [userRepository, setUserRepository] = useState<UserRepository[]>([]);
+  const [inputError, setInputError] = useState('');
 
   async function handleAddUserRepository(event: FormEvent<HTMLFormElement>)
   : Promise<void> {
     event.preventDefault();
 
-    const response = await api.get<UserRepository>(`/users/${newIpuntUserName}`);
-    const userRepo = response.data;
+    if(!newIpuntUserName) {
+      setInputError('Digite o login de um usuário')
+      return;
+    }
 
-    setUserRepository([...userRepository, userRepo]);
-    setNewInputUserName('');
+    try {
+      const response = await api.get<UserRepository>(`/users/${newIpuntUserName}`);
+      const userRepo = response.data;
+
+      setUserRepository([...userRepository, userRepo]);
+      setNewInputUserName('');
+      setInputError('');
+    } catch (err) {
+      setInputError('Erro na busca do usuário. Verifique se o login está correto');
+    }
   };
 
   return ( 
@@ -36,6 +49,8 @@ export function Repository() {
             placeholder="Digite o login do usuário" />
           <button type="submit">Pesquisar</button>
         </form>
+
+        { inputError && <Error>{inputError}</Error> }
 
         {userRepository.map(user => (
           <a key={user.login} href="test">
