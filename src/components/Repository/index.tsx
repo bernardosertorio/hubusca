@@ -1,36 +1,67 @@
+import { useState, FormEvent } from 'react';
 import { Repositories } from './styles';
 import { FiChevronRight } from 'react-icons/fi';
 
+import api from '../../services/api';
+
+interface UserRepository {
+  avatar_url: string;
+  name: string;
+  login: string;
+  location: string;
+};
+
 export function Repository() {
+  const [newIpuntUserName, setNewInputUserName] = useState('');
+  const [userRepository, setUserRepository] = useState<UserRepository[]>([]);
+
+  async function handleAddUserRepository(event: FormEvent<HTMLFormElement>)
+  : Promise<void> {
+    event.preventDefault();
+
+    const response = await api.get<UserRepository>(`/users/${newIpuntUserName}`);
+    const userRepo = response.data;
+
+    setUserRepository([...userRepository, userRepo]);
+    setNewInputUserName('');
+  };
+
   return ( 
+    <>
       <Repositories>
-         <form>
-          <input placeholder="Digite o nome do usuário" />
+        <form onSubmit={handleAddUserRepository}>
+          <input 
+            value={newIpuntUserName}
+            onChange={(e) => setNewInputUserName(e.target.value)}
+            placeholder="Digite o login do usuário" />
           <button type="submit">Pesquisar</button>
         </form>
-        
-        <a href="test">
+
+        {userRepository.map(user => (
+          <a key={user.login} href="test">
           <img 
-            src="https://avatars.githubusercontent.com/u/59669475?v=4" 
-            alt="Bernardo Sertório"
+            src={user.avatar_url} 
+            alt={user.login}
           />
 
           <div>
             <strong>Nome</strong>
-            <p>Bernardo</p> 
+            <p>{user.name}</p> 
           </div>
 
           <div>
             <strong>Login</strong>
-            <p>Sertório</p> 
+            <p>{user.login}</p> 
           </div>
 
           <div>
             <strong>Localização</strong>
-            <p>Rio de Janeiro</p> 
+            <p>{user.location}</p> 
           </div>
           <FiChevronRight size={20} /> 
         </a>
+        ))}
       </Repositories>
-  )
+    </>
+  );
 };
