@@ -6,16 +6,16 @@ import { Error } from './styles';
 
 import api from '../../services/api';
 
-interface UserRepository {
+interface UserRepositoryProps {
   avatar_url: string;
   name: string;
   login: string;
   location: string;
 };
 
-export function Repository() {
+export function UserRepository() {
   const [newIpuntUserName, setNewInputUserName] = useState('');
-  const [userRepository, setUserRepository] = useState<UserRepository[]>([]);
+  const [userRepository, setUserRepository] = useState<UserRepositoryProps[]>([]);
   const [inputError, setInputError] = useState('');
 
   async function handleAddUserRepository(event: FormEvent<HTMLFormElement>)
@@ -28,7 +28,8 @@ export function Repository() {
     }
 
     try {
-      const response = await api.get<UserRepository>(`/users/${newIpuntUserName}`);
+      const response = await api.get<UserRepositoryProps>
+      (`/users/${newIpuntUserName}`);
       const userRepo = response.data;
 
       setUserRepository([...userRepository, userRepo]);
