@@ -7,9 +7,9 @@ import { Error } from './styles';
 
 export function UserRepository() {
   const { 
-    handleAddUserRepository, 
-    inputError, 
+    handleAddUserRepository,
     setNewInputUserName, 
+    inputError,  
     userRepository,
     newIpuntUserName, 
   } = useUserReporitory();

@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext } from 'react';
+import { createContext, ReactNode, useContext, useEffect, useRef } from 'react';
 import { useState, FormEvent } from 'react';
 
 import api from '../services/api';
@@ -30,7 +30,25 @@ const UserRepositoryContext = createContext<ContextDataUserRepository>(
 export function UserRepositoryProvider({ children }: PropsUserRepository) {
   const [newIpuntUserName, setNewInputUserName] = useState('');
   const [inputError, setInputError] = useState('');
-  const [userRepository, setUserRepository] = useState<UserRepository[]>([]);
+
+  const [userRepository, setUserRepository] = useState<UserRepository[]>(() => {
+    const storagedRepositories = localStorage.getItem(
+      '@HUBusca:userRepository',
+    );
+
+    if (storagedRepositories) {
+      return JSON.parse(storagedRepositories)
+    }
+
+    return [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem(
+      '@HUBusca:userRepository',
+      JSON.stringify(userRepository),
+    );
+  }, [userRepository]);
 
   async function handleAddUserRepository(event: FormEvent<HTMLFormElement>)
   : Promise<void> {
