@@ -2,18 +2,18 @@ import { RepositoryStyles } from './styles';
 import { FiChevronRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
-import { useUserReporitory } from '../../hooks/useUserRepository';
+import { useReporitorySearcher } from '../../hooks/useRepositorySearcher';
 
 import { Error } from './styles';
 
-export function Repository() {
+export function RepositorySearcher() {
   const { 
     handleAddUserRepository,
     setNewInputUserName, 
     inputError,  
     userRepository,
     newIpuntUserName, 
-  } = useUserReporitory();
+  } = useReporitorySearcher();
 
   return ( 
     <>

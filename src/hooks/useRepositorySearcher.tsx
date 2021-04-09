@@ -3,7 +3,7 @@ import { useState, FormEvent } from 'react';
 
 import api from '../services/api';
 
-interface PropsUserRepository {
+interface PropsRepositorySearcher {
   children: ReactNode;
 }
 
@@ -14,7 +14,7 @@ interface UserRepository {
   location: string;
 };
 
-interface ContextDataUserRepository {
+interface ContextDataRepositorySearcher {
   newIpuntUserName: string;
   userRepository: UserRepository[];
   inputError: string;
@@ -23,11 +23,11 @@ interface ContextDataUserRepository {
 }
 
 
-const UserRepositoryContext = createContext<ContextDataUserRepository>(
-  {} as ContextDataUserRepository
+const RepositorySearcherContext = createContext<ContextDataRepositorySearcher>(
+  {} as ContextDataRepositorySearcher
 );
 
-export function UserRepositoryProvider({ children }: PropsUserRepository) {
+export function RepositorySearcherProvider({ children }: PropsRepositorySearcher) {
   const [newIpuntUserName, setNewInputUserName] = useState('');
   const [inputError, setInputError] = useState('');
 
@@ -73,7 +73,7 @@ export function UserRepositoryProvider({ children }: PropsUserRepository) {
   };
 
   return (
-    <UserRepositoryContext.Provider value={{ 
+    <RepositorySearcherContext.Provider value={{ 
       userRepository, 
       newIpuntUserName, 
       inputError, 
@@ -81,12 +81,12 @@ export function UserRepositoryProvider({ children }: PropsUserRepository) {
       handleAddUserRepository,  
     }}>
       {children}
-    </UserRepositoryContext.Provider>  
+    </RepositorySearcherContext.Provider>  
   )
 };
 
-export function useUserReporitory() {
-  const context = useContext(UserRepositoryContext);
+export function useReporitorySearcher() {
+  const context = useContext(RepositorySearcherContext);
 
   return context;
 };

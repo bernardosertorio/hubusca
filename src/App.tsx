@@ -1,6 +1,6 @@
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import { UserRepositoryProvider } from './hooks/useUserRepository';
+import { RepositorySearcherProvider } from './hooks/useRepositorySearcher';
 
 import Routes  from './routes';
 
@@ -8,12 +8,12 @@ import { GlobalStyle } from './styles/global';
 
 export function App() {
   return (
-    <UserRepositoryProvider>
+    <RepositorySearcherProvider>
       <Router>
         <Routes />
       </Router>
       <GlobalStyle />
-    </UserRepositoryProvider>
+    </RepositorySearcherProvider>
   );
 };
 
