@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useEffect, useRef } from 'react';
+import { createContext, ReactNode, useContext, useEffect } from 'react';
 import { useState, FormEvent } from 'react';
 
 import api from '../services/api';
@@ -55,7 +55,7 @@ export function UserRepositoryProvider({ children }: PropsUserRepository) {
     event.preventDefault();
 
     if(!newIpuntUserName) {
-      setInputError('Digite o login de um usuário')
+      setInputError('Digite o nome de um usuário')
       return;
     }
 
@@ -68,7 +68,7 @@ export function UserRepositoryProvider({ children }: PropsUserRepository) {
       setNewInputUserName('');
       setInputError('');
     } catch (err) {
-      setInputError('Erro na busca do usuário. Verifique se o login está correto');
+      setInputError('Erro na busca do usuário. Verifique se o nome está correto');
     }
   };
 

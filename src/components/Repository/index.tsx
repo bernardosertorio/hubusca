@@ -22,7 +22,7 @@ export function Repository() {
           <input 
             value={newIpuntUserName}
             onChange={(e) => setNewInputUserName(e.target.value)}
-            placeholder="Digite o login do usuário" />
+            placeholder="Digite o nome do usuário" />
           <button type="submit">Pesquisar</button>
         </form>
 
