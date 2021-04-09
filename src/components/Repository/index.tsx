@@ -1,11 +1,12 @@
-import { Repositories } from './styles';
+import { RepositoryStyles } from './styles';
 import { FiChevronRight } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 import { useUserReporitory } from '../../hooks/useUserRepository';
 
 import { Error } from './styles';
 
-export function UserRepository() {
+export function Repository() {
   const { 
     handleAddUserRepository,
     setNewInputUserName, 
@@ -16,7 +17,7 @@ export function UserRepository() {
 
   return ( 
     <>
-      <Repositories>
+      <RepositoryStyles>
         <form onSubmit={handleAddUserRepository}>
           <input 
             value={newIpuntUserName}
@@ -28,30 +29,30 @@ export function UserRepository() {
         { inputError && <Error>{inputError}</Error> }
 
         {userRepository.map(user => (
-          <a key={user.login} href="test">
-          <img 
-            src={user.avatar_url} 
-            alt={user.login}
-          />
+          <Link key={user.login} to={`/users/${user.login}`}>
+            <img 
+              src={user.avatar_url} 
+              alt={user.login}
+            />
 
-          <div>
-            <strong>Nome</strong>
-            <p>{user.name}</p> 
-          </div>
+            <div>
+              <strong>Nome</strong>
+              <p>{user.name}</p> 
+            </div>
 
-          <div>
-            <strong>Login</strong>
-            <p>{user.login}</p> 
-          </div>
+            <div>
+              <strong>Login</strong>
+              <p>{user.login}</p> 
+            </div>
 
-          <div>
-            <strong>Localização</strong>
-            <p>{user.location}</p> 
-          </div>
-          <FiChevronRight size={20} /> 
-        </a>
+            <div>
+              <strong>Localização</strong>
+              <p>{user.location}</p> 
+            </div>
+            <FiChevronRight size={20} /> 
+          </Link>
         ))}
-      </Repositories>
+      </RepositoryStyles>
     </>
   );
 };

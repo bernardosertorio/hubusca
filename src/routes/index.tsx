@@ -1,12 +1,12 @@
 import { Switch, Route } from 'react-router-dom';
 
 import { Dashboard } from '../pages/Dashboard/index';
-import { Repository } from '../pages/Repository/index';
+import { UserRepository } from '../pages/UserRepository/index';
 
 const Routes = () => (
   <Switch>
     <Route path="/" exact component={Dashboard} />
-    <Route path="/repository" component={Repository} />
+    <Route path="/users/:user" component={UserRepository} />
   </Switch>
 );
 

@@ -1,11 +1,11 @@
 import { Header } from '../../components/Header';
-import { UserRepository } from '../../components/UserRepository';
+import { Repository } from '../../components/Repository';
 
 export function Dashboard() {
   return (
     <> 
       <Header />
-      <UserRepository />
+      <Repository />
     </>
   )
 };
