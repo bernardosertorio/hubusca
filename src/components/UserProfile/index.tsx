@@ -10,10 +10,11 @@ interface ParamsProps {
   user: string;
 }
 
-
 export function UserProfile() {
   const { user, userRepository, loadData } = useUserProfile();
   const { user: login } = useParams<ParamsProps>();
+
+  console.log(login,'aqui')
 
   useEffect(() => {
     loadData(login);

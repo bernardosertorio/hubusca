@@ -62,6 +62,7 @@ export function RepositorySearcherProvider({ children }: PropsRepositorySearcher
     try {
       const response = await api.get<UserRepository>
       (`/users/${newIpuntUserName}`);
+
       const userRepo = response.data;
 
       setUserRepository([...userRepository, userRepo]);
