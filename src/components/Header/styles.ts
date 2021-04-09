@@ -8,6 +8,17 @@ export const Container = styled.header`
 
   margin-top: 60px;
 
+  a {
+    display: flex; 
+    text-decoration: none;
+    color: #a8a8b3;
+    transition: color 0.2;
+
+    &:hover {
+      color: #666;
+    }
+  }
+
   h1 {
     font-size: 20px;
   }
