@@ -19,7 +19,7 @@ interface ContextDataRepositorySearcher {
   userRepository: UserRepository[];
   inputError: string;
   setNewInputUserName: React.Dispatch<React.SetStateAction<string>>;
-  handleAddUserRepository: (event: FormEvent<HTMLFormElement>) => Promise<void>; 
+  handleAddUserProfile: (event: FormEvent<HTMLFormElement>) => Promise<void>; 
 }
 
 
@@ -50,7 +50,7 @@ export function RepositorySearcherProvider({ children }: PropsRepositorySearcher
     );
   }, [userRepository]);
 
-  async function handleAddUserRepository(event: FormEvent<HTMLFormElement>)
+  async function handleAddUserProfile(event: FormEvent<HTMLFormElement>)
   : Promise<void> {
     event.preventDefault();
 
@@ -78,7 +78,7 @@ export function RepositorySearcherProvider({ children }: PropsRepositorySearcher
       newIpuntUserName, 
       inputError, 
       setNewInputUserName, 
-      handleAddUserRepository,  
+      handleAddUserProfile,  
     }}>
       {children}
     </RepositorySearcherContext.Provider>  

@@ -8,7 +8,7 @@ import { Error } from './styles';
 
 export function RepositorySearcher() {
   const { 
-    handleAddUserRepository,
+    handleAddUserProfile,
     setNewInputUserName, 
     inputError,  
     userRepository,
@@ -18,7 +18,7 @@ export function RepositorySearcher() {
   return ( 
     <>
       <RepositoryStyles>
-        <form onSubmit={handleAddUserRepository}>
+        <form onSubmit={handleAddUserProfile}>
           <input 
             value={newIpuntUserName}
             onChange={(e) => setNewInputUserName(e.target.value)}

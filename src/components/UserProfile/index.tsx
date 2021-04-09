@@ -1,51 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
-import { useRouteMatch } from 'react-router-dom';
 import { FiChevronRight } from 'react-icons/fi';
-
 import { UserRepositoryInfo, RepositoriesList } from './styles';
 
-import api from '../../services/api';
+import { useUserProfile } from '../../hooks/useUserProfile';
 
-interface UserParams {
+interface ParamsProps {
   user: string;
 }
 
-interface User {
-  avatar_url: string;
-  name: string;
-  login: string;
-  location: string;
-  id: number;
-  followers: number;
-  public_repos: number;
-};
-
-interface UserRepository {
-  id: number;
-  name: string;
-  html_url: string;
-  language: string;
-  description: string;
-  created_at: string;
-  pushed_at: string;
-}
 
 export function UserProfile() {
-  const [user, setUser] = useState<User | null >(null);
-  const [userRepository, setUserRepository] = useState<UserRepository[]>([]);
-
-  const { params } = useRouteMatch<UserParams>();
+  const { user, userRepository, loadData } = useUserProfile();
+  const { user: login } = useParams<ParamsProps>();
 
   useEffect(() => {
-    api.get(`users/${params.user}`).then(response => {
-      setUser(response.data);
-    });
-
-    api.get(`users/${params.user}/repos`).then(response => {
-      setUserRepository(response.data);
-    });
-  }, [params.user]);
+    loadData(login);
+  }, []); 
   
   return ( 
     <>
