@@ -41,7 +41,7 @@ export const RepositoryStyles = styled.div`
   }
 
   a {
-    background: #fff;
+    background: #7CFC00;
     border-radius: 5px;
     width: 100%;
     padding: 24px;
@@ -78,7 +78,7 @@ export const RepositoryStyles = styled.div`
 
       p {
         font-size: 18px;
-        color: #a8a8b3;
+        color: #6B8E23;
         margin-top: 4px;        
       }
     }

@@ -23,7 +23,7 @@ export const UserRepositoryInfo = styled.section`
 
       p {
         font-size: 18px;
-        color: #737380;
+        color:#FFFFFF ;
         margin-top: 4px;
       }
     }
@@ -48,7 +48,7 @@ export const UserRepositoryInfo = styled.section`
       span {
         display: block;
         margin-top: 4px;
-        color: #6c6c80;
+        color: #FFFFFF;
       }
     }
   }
@@ -58,7 +58,7 @@ export const RepositoriesList = styled.section`
   margin-top: 80px;
 
   a {
-    background: #fff;
+    background: #7CFC00;
     border-radius: 5px;
     width: 100%;
     padding: 24px;
@@ -89,7 +89,7 @@ export const RepositoriesList = styled.section`
 
       p {
         font-size: 18px;
-        color: #a8a8b3;
+        color: #6B8E23;
         margin-top: 4px;        
       }
     }

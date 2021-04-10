@@ -4,7 +4,7 @@ import githubBackground from '../assets/github-background.svg';
 
 export const GlobalStyle = createGlobalStyle`
   :root {
-    --background-color: #F2F2FA
+    --background-color: #6B8E23
   }
 
   * {
