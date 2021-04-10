@@ -29,7 +29,7 @@ export function RepositorySearcher() {
         { inputError && <Error>{inputError}</Error> }
 
         {userRepository.map(user => (
-          <Link key={user.login} to={`/users/${user.name}`}>
+          <Link key={user.login} to={`/users/${user.login}`}>
             <img 
               src={user.avatar_url} 
               alt={user.login}

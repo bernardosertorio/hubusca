@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useContext, useState } from 'react';
 
-// import { editDate } from '../utils/editDate';
+import { editDate } from '../utils/editDate';
 
 import api from '../services/api';
 
@@ -47,8 +47,16 @@ export function UserProfileProvider({ children }: PropsRepositorySearcher) {
     const user = await api.get(`users/${login}`);
     const repositories = await api.get(`users/${login}/repos`);
 
+    console.log(repositories.data, '')
+
+    const userRepository = repositories?.data?.map((repo: any) => ({
+      ...repo,
+      created_at: editDate(repo.created_at),
+      pushed_at: editDate(repo.pushed_at),
+    }));
+
     setUser(user.data);
-    setUserRepository(repositories.data);
+    setUserRepository(userRepository);
   }
 
 
