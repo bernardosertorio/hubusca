@@ -1,7 +1,8 @@
 import { RepositoryStyles } from './styles';
-import { FiChevronRight } from 'react-icons/fi';
+import { FiChevronRight, FiGlobe } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
+import Input from '../Input';
 import { useReporitorySearcher } from '../../hooks/useRepositorySearcher';
 
 import { Error } from './styles';
@@ -19,10 +20,12 @@ export function RepositorySearcher() {
     <>
       <RepositoryStyles>
         <form onSubmit={handleAddUserProfile}>
-          <input 
+          <Input 
+            name="typed login"
+            icon={FiGlobe}
             value={newIpuntUserName}
             onChange={(e) => setNewInputUserName(e.target.value)}
-            placeholder="Digite o nome do usuário" />
+            placeholder="Digite o login do usuário" />
           <button type="submit">Pesquisar</button>
         </form>
 

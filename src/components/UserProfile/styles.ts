@@ -95,7 +95,7 @@ export const RepositoriesList = styled.section`
     }
     svg {
         margin-left: auto;
-        color: #cbcbd6;
+        color: black;
     }
   }
 `;

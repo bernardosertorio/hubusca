@@ -11,19 +11,6 @@ export const RepositoryStyles = styled.div`
     max-width: 700px;
     display: flex;
 
-    input {
-      flex: 1;
-      height: 70px;
-      padding: 0 24px;
-      border: 0;
-      border-radius: 5px 0 0 5px;
-      color: #3a3a3a; 
-
-      &::placeholder {
-        color: #a8a8b3;
-      }
-    }
-
     button {
       width: 210px;
       height: 70px;
@@ -84,7 +71,7 @@ export const RepositoryStyles = styled.div`
     }
     svg {
         margin-left: auto;
-        color: #cbcbd6;
+        color: black;
     }
   }
 `;
