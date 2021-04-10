@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@types/react-router-dom": "^5.1.7",
+    "@unform/core": "^2.1.6",
+    "@unform/web": "^2.1.6",
     "axios": "^0.21.1",
     "polished": "^4.1.1",
     "react": "^17.0.2",
