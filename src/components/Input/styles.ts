@@ -6,7 +6,7 @@ interface ContainerProps {
 }
 
 export const Container = styled.div<ContainerProps>`
-  flex: 1;
+  display: flex;
   border: 0;
   background: #FFFF;
   border-radius: 5px 0 0 5px;
@@ -14,7 +14,7 @@ export const Container = styled.div<ContainerProps>`
   border: 2px #232129;
   color: #666360;
 
-  display: flex;
+  flex: 1;
   align-items: center;
 
   ${props => props.isFocused && css`
@@ -29,11 +29,11 @@ export const Container = styled.div<ContainerProps>`
 
   svg {
     flex: 1;
-    margin-left: -90px;
+    margin-left: 0px;
   }
 
   input {
-    flex: 1;
+    flex: 3;
     border: 0;
     height: 70px;
     padding: 0 30px;
