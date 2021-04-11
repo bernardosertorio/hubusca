@@ -52,8 +52,6 @@ export function RepositorySearcherProvider({ children }: PropsRepositorySearcher
 
   async function handleAddUserProfile(event: FormEvent<HTMLFormElement>)
   : Promise<void> {
-    event.preventDefault();
-
     if(!newIpuntUserName) {
       setInputError('Digite o nome de um usuário')
       return;
