@@ -18,12 +18,12 @@ export const Container = styled.div<ContainerProps>`
   align-items: center;
 
   ${props => props.isFocused && css`
-    color: #008000;
-    border-color: #008000;
+    color: #7CFC00;
+    border-color: #7CFC00;
   `}
 
   ${props => props.isFilled && css`
-    color: #008000;
+    color: #7CFC00;
   `}
 
 
@@ -34,7 +34,7 @@ export const Container = styled.div<ContainerProps>`
 
   input {
     flex: 3;
-    border: 0;
+    line-height: 0;
     height: 70px;
     padding: 0 30px;
     color: #3a3a3a;

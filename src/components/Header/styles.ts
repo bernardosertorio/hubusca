@@ -21,9 +21,14 @@ export const Container = styled.header`
 
   h1 {
     font-size: 20px;
+    margin-left: 10px;
   }
 
   h2 {
     font-size: 50px; 
+  }
+
+  svg {
+    margin-top: 17px;
   }
 `;

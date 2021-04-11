@@ -77,25 +77,34 @@ export const RepositoriesList = styled.section`
     & + a {
       margin-top: 16px;
     }
+  }
+`;
 
-    div {
-      margin: 0 16px;
-      flex: 1;
+export const ContentsRepositories = styled.section`
+  display: grid;
 
-      strong {
-        font-size: 20px;
-        color: #3d3d4d;
-      }
+  div {
+  margin: 0 16px;
+  flex: 1;
 
-      p {
-        font-size: 18px;
-        color: #6B8E23;
-        margin-top: 4px;        
-      }
+  & + div {
+      margin-top: 20px;
     }
-    svg {
-        margin-left: auto;
-        color: black;
+
+  strong {
+    font-size: 20px;
+    color: #3d3d4d;
+  }
+
+  p {
+    font-size: 18px;
+    color: #6B8E23;
+    margin-top: 4px;        
     }
+  }
+  svg {
+      margin-right: auto;
+      margin-top: 25px;
+      color: black;
   }
 `;

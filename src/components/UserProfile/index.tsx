@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { FiChevronRight } from 'react-icons/fi';
-import { UserRepositoryInfo, RepositoriesList } from './styles';
+import { UserRepositoryInfo, RepositoriesList, ContentsRepositories } from './styles';
 
 import { useUserProfile } from '../../hooks/useUserProfile';
 
@@ -59,31 +59,33 @@ export function UserProfile() {
       <RepositoriesList>
         {userRepository.map(repository => (
           <a key={repository.id} href={repository.html_url}>
-            <div>
-              <strong>Repositório</strong>
-              <p>{repository.name}</p> 
-            </div>
+            <ContentsRepositories>
+              <div>
+                <strong>Repositório</strong>
+                <p>{repository.name}</p> 
+              </div>
 
-            <div>
-              <strong>Linguagem</strong>
-              <p>{repository.language}</p> 
-            </div>
+              <div>
+                <strong>Linguagem</strong>
+                <p>{repository.language}</p> 
+              </div>
 
-            <div>
-              <strong>Descrição</strong>
-              <p>{repository.description}</p> 
-            </div>
+              <div>
+                <strong>Descrição</strong>
+                <p>{repository.description}</p> 
+              </div>
 
-            <div>
-              <strong>Criação</strong>
-              <p>{repository.created_at}</p> 
-            </div>
+              <div>
+                <strong>Criação</strong>
+                <p>{repository.created_at}</p> 
+              </div>
 
-            <div>
-              <strong>Último push</strong>
-              <p>{repository.pushed_at}</p> 
-            </div>
-            <FiChevronRight size={20} /> 
+              <div>
+                <strong>Último push</strong>
+                <p>{repository.pushed_at}</p> 
+              </div>
+              <FiChevronRight size={20} />
+            </ContentsRepositories> 
           </a>
         ))}
       </RepositoriesList>
