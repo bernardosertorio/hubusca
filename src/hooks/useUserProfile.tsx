@@ -47,8 +47,6 @@ export function UserProfileProvider({ children }: PropsRepositorySearcher) {
     const user = await api.get(`users/${login}`);
     const repositories = await api.get(`users/${login}/repos`);
 
-    console.log(repositories.data, '')
-
     const userRepository = repositories?.data?.map((repo: any) => ({
       ...repo,
       created_at: editDate(repo.created_at),
