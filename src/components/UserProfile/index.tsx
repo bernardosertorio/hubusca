@@ -16,7 +16,7 @@ export function UserProfile() {
 
   useEffect(() => {
     loadData(login);
-  }, []); 
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps  
   
   return ( 
     <>
