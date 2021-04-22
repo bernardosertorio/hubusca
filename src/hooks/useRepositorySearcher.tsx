@@ -20,6 +20,7 @@ interface ContextDataRepositorySearcher {
   inputError: string;
   setNewInputUserName: React.Dispatch<React.SetStateAction<string>>;
   handleAddUserProfile: (event: FormEvent<HTMLFormElement>) => Promise<void>;
+  deleteUserRepository(login: string): Promise<void>;
 }
 
 
@@ -71,13 +72,23 @@ export function RepositorySearcherProvider({ children }: IPropsRepositorySearche
     }
   };
 
+  async function deleteUserRepository(login: string): Promise<void> {
+    await api.delete<IUserRepository>(`/users/${login}`);
+
+    const userRepositoryFiltered = userRepository.filter(
+      userRepository => userRepository.login !== login);
+
+    setUserRepository(userRepositoryFiltered);
+  };
+
   return (
     <RepositorySearcherContext.Provider value={{ 
       userRepository, 
       newIpuntUserName, 
       inputError, 
       setNewInputUserName, 
-      handleAddUserProfile, 
+      handleAddUserProfile,
+      deleteUserRepository, 
     }}>
       {children}
     </RepositorySearcherContext.Provider>  

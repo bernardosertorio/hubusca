@@ -17,8 +17,10 @@ interface IUserRepository {
 
 interface IRepositorySearcherProps {
   handleAddUserProfile: (event: FormEvent<HTMLFormElement>) => Promise<void>;
-  setNewInputUserName: React.Dispatch<React.SetStateAction<string>>; 
-  inputError: string;  
+  setNewInputUserName: React.Dispatch<React.SetStateAction<string>>;
+  deleteUserRepository(login: string): Promise<void>; 
+  inputError: string;
+  repository: IUserRepository;  
   userRepository: IUserRepository[];
   newIpuntUserName: string;    
 }
@@ -27,8 +29,14 @@ export function RepositorySearcher({
   handleAddUserProfile, 
   inputError, 
   newIpuntUserName, 
-  setNewInputUserName, 
-  userRepository}: IRepositorySearcherProps) {
+  setNewInputUserName,
+  deleteUserRepository, 
+  repository
+}: IRepositorySearcherProps) {
+
+  const handleDeleteUserRepository = () => {
+    deleteUserRepository(repository.login)
+  }
 
   return ( 
     <>
@@ -45,35 +53,37 @@ export function RepositorySearcher({
 
         { inputError && <Error>{inputError}</Error> }
 
-        {userRepository.map(user => (
-          <Link key={user.login} to={`/users/${user.login}`}>
+          <Link key={repository.login} to={`/users/${repository.login}`}>
 
-            <button type="button" className="delete-container">
+            <button 
+              type="button" 
+              className="delete-container"
+              onClick={handleDeleteUserRepository}
+            >
               <FiX size={15}/>
             </button>
 
             <img 
-              src={user.avatar_url} 
-              alt={user.login}
+              src={repository.avatar_url} 
+              alt={repository.login}
             />
 
             <div>
               <strong>Nome</strong>
-              <p>{user.name}</p> 
+              <p>{repository.name}</p> 
             </div>
 
             <div>
               <strong>Login</strong>
-              <p>{user.login}</p> 
+              <p>{repository.login}</p> 
             </div>
 
             <div>
               <strong>Localização</strong>
-              <p>{user.location}</p> 
+              <p>{repository.location}</p> 
             </div>
             <FiChevronRight size={20} /> 
           </Link>
-        ))}
       </RepositoryStyles>
     </>
   );

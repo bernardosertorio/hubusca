@@ -9,18 +9,24 @@ export function Dashboard() {
     inputError, 
     newIpuntUserName, 
     setNewInputUserName, 
-    userRepository } = useReporitorySearcher();
+    userRepository,
+    deleteUserRepository 
+  } = useReporitorySearcher();
 
   return (
     <> 
       <Header />
-      <RepositorySearcher 
-        handleAddUserProfile={handleAddUserProfile}
-        inputError={inputError}
-        newIpuntUserName={newIpuntUserName}
-        setNewInputUserName={setNewInputUserName}
-        userRepository={userRepository} 
-      />
+      {userRepository.map(repository => (
+        <RepositorySearcher 
+          repository={repository}
+          handleAddUserProfile={handleAddUserProfile}
+          deleteUserRepository={deleteUserRepository}
+          inputError={inputError}
+          newIpuntUserName={newIpuntUserName}
+          setNewInputUserName={setNewInputUserName}
+          userRepository={userRepository} 
+        />
+      ))}
     </>
   )
-};
+}
