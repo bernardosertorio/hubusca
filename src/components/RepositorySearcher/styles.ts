@@ -70,22 +70,22 @@ export const RepositoryStyles = styled.div`
         margin-top: 4px;        
       }
     }
+    
     svg {
         margin-left: auto;
         color: black;
     }
 
     .delete-container {
-    position: absolute;
-    top: 30px;
-    border: 0;
-    background: transparent;
+      top: 30px;
+      border: 0;
+      background: transparent;
 
-    svg {
-        margin-left: auto;
-        color: black;
+      svg {
+          margin-left: auto;
+          color: black;
+        }
     }
-  }
   }
 `;
 

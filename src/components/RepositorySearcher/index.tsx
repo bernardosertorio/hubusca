@@ -47,9 +47,11 @@ export function RepositorySearcher({
 
         {userRepository.map(user => (
           <Link key={user.login} to={`/users/${user.login}`}>
+
             <button type="button" className="delete-container">
               <FiX size={20}/>
             </button>
+            
             <img 
               src={user.avatar_url} 
               alt={user.login}
