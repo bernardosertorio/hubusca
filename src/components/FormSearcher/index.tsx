@@ -2,7 +2,7 @@ import { FormEvent } from 'react';
 import { FiGlobe } from 'react-icons/fi';
 import { Form } from '@unform/web';
 import Input from '../Input';
-import { Error } from './styles';
+import { Error, RepositoryStyles } from './styles';
 
 
 interface IRepositorySearcherProps {
@@ -21,17 +21,19 @@ export function FormSearcher({
 
   return (
     <>
-      <Form onSubmit={handleAddUserProfile}>
-      <Input 
-        name="typedLogin"
-        icon={FiGlobe}
-        value={newIpuntUserName}
-        onChange={(e) => setNewInputUserName(e.target.value)}
-        placeholder="Digite o login do usuário" />
-        <button type="submit">Pesquisar</button>
-      </Form>
+      <RepositoryStyles>
+        <Form onSubmit={handleAddUserProfile}>
+        <Input 
+          name="typedLogin"
+          icon={FiGlobe}
+          value={newIpuntUserName}
+          onChange={(e) => setNewInputUserName(e.target.value)}
+          placeholder="Digite o login do usuário" />
+          <button type="submit">Pesquisar</button>
+        </Form>
 
-      { inputError && <Error>{inputError}</Error> }
+        { inputError && <Error>{inputError}</Error> }
+      </RepositoryStyles>
     </>
   );
 }
