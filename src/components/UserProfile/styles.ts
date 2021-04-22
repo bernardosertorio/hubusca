@@ -33,6 +33,7 @@ export const UserRepositoryInfo = styled.section`
 
   ul {
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
     margin-top: 40px;
 
