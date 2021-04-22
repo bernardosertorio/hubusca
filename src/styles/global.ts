@@ -49,9 +49,9 @@ export const GlobalStyle = createGlobalStyle`
 
   .delete-container {
     position: absolute;
-    width: 15px;
-    left: 20px;
-    top: 20px;
+    width: 5px;
+    left: 30px;
+    top: 30px;
     border: 0;
     background: transparent;
 
