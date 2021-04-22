@@ -1,4 +1,5 @@
 import { Header } from '../../components/Header';
+import { FormSearcher } from '../../components/FormSearcher';
 import { RepositorySearcher } from '../../components/RepositorySearcher';
 
 import { useReporitorySearcher } from '../../hooks/useRepositorySearcher';
@@ -16,15 +17,16 @@ export function Dashboard() {
   return (
     <> 
       <Header />
+      <FormSearcher
+       handleAddUserProfile={handleAddUserProfile}
+       inputError={inputError}
+       newIpuntUserName={newIpuntUserName}
+       setNewInputUserName={setNewInputUserName}
+      />
       {userRepository.map(repository => (
         <RepositorySearcher 
           repository={repository}
-          handleAddUserProfile={handleAddUserProfile}
-          deleteUserRepository={deleteUserRepository}
-          inputError={inputError}
-          newIpuntUserName={newIpuntUserName}
-          setNewInputUserName={setNewInputUserName}
-          userRepository={userRepository} 
+          deleteUserRepository={deleteUserRepository} 
         />
       ))}
     </>
