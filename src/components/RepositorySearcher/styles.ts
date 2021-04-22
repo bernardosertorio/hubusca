@@ -77,7 +77,7 @@ export const RepositoryStyles = styled.div`
     }
 
     .delete-container {
-      margin-top: 8px;
+      margin-top: auto;
       margin-left: 5px;
       border: 0;
       background: transparent;
