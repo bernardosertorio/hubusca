@@ -47,6 +47,20 @@ export const GlobalStyle = createGlobalStyle`
     cursor: not-allowed;
   }
 
+  .delete-container {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    border: 0;
+    background: transparent;
+
+    transition: filter 0.2s;
+
+    &:hover {
+      filter: brightness(0.8);
+    }
+  }
+
   #root {
     max-width: 960px;
     margin: 0 auto;

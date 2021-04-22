@@ -4,6 +4,8 @@ import { FiChevronRight, FiGlobe } from 'react-icons/fi';
 import { Form } from '@unform/web';
 import { Link } from 'react-router-dom';
 
+import closeIcon from '../../assets/x.svg';
+
 import Input from '../Input';
 
 import { Error } from './styles';
@@ -47,6 +49,12 @@ export function RepositorySearcher({
 
         {userRepository.map(user => (
           <Link key={user.login} to={`/users/${user.login}`}>
+            <button 
+              type="button" 
+              className="delete-container" 
+              >
+              <img src={closeIcon} alt="Excluir contaienr" />
+            </button>
             <img 
               src={user.avatar_url} 
               alt={user.login}
