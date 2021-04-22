@@ -6,6 +6,7 @@ export const UserRepositoryInfo = styled.section`
   header {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 
     img {
       width: 120px;

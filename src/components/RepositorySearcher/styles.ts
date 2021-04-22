@@ -33,6 +33,7 @@ export const RepositoryStyles = styled.div`
     width: 100%;
     padding: 24px;
     display: block;
+    flex-wrap: wrap;
     text-decoration: none;
     margin-top: 80px;
 
