@@ -70,14 +70,15 @@ export const RepositoryStyles = styled.div`
         margin-top: 4px;        
       }
     }
-    
+
     svg {
         margin-left: auto;
         color: black;
     }
 
     .delete-container {
-      top: 30px;
+      margin-top: 8px;
+      margin-left: 5px;
       border: 0;
       background: transparent;
 
