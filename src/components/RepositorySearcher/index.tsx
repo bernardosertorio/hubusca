@@ -1,21 +1,34 @@
+import { FormEvent } from 'react';
 import { RepositoryStyles } from './styles';
 import { FiChevronRight, FiGlobe } from 'react-icons/fi';
 import { Form } from '@unform/web';
 import { Link } from 'react-router-dom';
 
 import Input from '../Input';
-import { useReporitorySearcher } from '../../hooks/useRepositorySearcher';
 
 import { Error } from './styles';
 
-export function RepositorySearcher() {
-  const { 
-    handleAddUserProfile,
-    setNewInputUserName, 
-    inputError,  
-    userRepository,
-    newIpuntUserName, 
-  } = useReporitorySearcher();
+interface IUserRepository {
+  avatar_url: string;
+  name: string;
+  login: string;
+  location: string;
+};
+
+interface IRepositorySearcherProps {
+  handleAddUserProfile: (event: FormEvent<HTMLFormElement>) => Promise<void>;
+  setNewInputUserName: React.Dispatch<React.SetStateAction<string>>; 
+  inputError: string;  
+  userRepository: IUserRepository[];
+  newIpuntUserName: string;    
+}
+
+export function RepositorySearcher({ 
+  handleAddUserProfile, 
+  inputError, 
+  newIpuntUserName, 
+  setNewInputUserName, 
+  userRepository}: IRepositorySearcherProps) {
 
   return ( 
     <>

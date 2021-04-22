@@ -4,11 +4,11 @@ import { editDate } from '../utils/editDate';
 
 import api from '../services/api';
 
-interface PropsRepositorySearcher {
+interface IPropsRepositorySearcher {
   children: ReactNode;
 }
 
-interface User {
+interface IUser {
   avatar_url: string;
   name: string;
   login: string;
@@ -18,7 +18,7 @@ interface User {
   public_repos: number;
 };
 
-interface UserRepository {
+interface IUserRepository {
   id: number;
   name: string;
   html_url: string;
@@ -29,8 +29,8 @@ interface UserRepository {
 }
 
 interface ContextUserProfile {
-  user: User | null;
-  userRepository: UserRepository[];
+  user: IUser | null;
+  userRepository: IUserRepository[];
   loadData: (login: string) => Promise<void>;
 }
 
@@ -39,9 +39,9 @@ const UserProfileContext = createContext<ContextUserProfile>(
   {} as ContextUserProfile
 );
 
-export function UserProfileProvider({ children }: PropsRepositorySearcher) {
-  const [user, setUser] = useState<User | null >(null);
-  const [userRepository, setUserRepository] = useState<UserRepository[]>([]);
+export function UserProfileProvider({ children }: IPropsRepositorySearcher) {
+  const [user, setUser] = useState<IUser | null >(null);
+  const [userRepository, setUserRepository] = useState<IUserRepository[]>([]);
 
   async function loadData(login: string): Promise<void> {
     const user = await api.get(`users/${login}`);

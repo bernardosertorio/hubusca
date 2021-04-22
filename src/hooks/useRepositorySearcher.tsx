@@ -3,11 +3,11 @@ import { useState, FormEvent } from 'react';
 
 import api from '../services/api';
 
-interface PropsRepositorySearcher {
+interface IPropsRepositorySearcher {
   children: ReactNode;
 }
 
-interface UserRepository {
+interface IUserRepository {
   avatar_url: string;
   name: string;
   login: string;
@@ -16,10 +16,10 @@ interface UserRepository {
 
 interface ContextDataRepositorySearcher {
   newIpuntUserName: string;
-  userRepository: UserRepository[];
+  userRepository: IUserRepository[];
   inputError: string;
   setNewInputUserName: React.Dispatch<React.SetStateAction<string>>;
-  handleAddUserProfile: (event: FormEvent<HTMLFormElement>) => Promise<void>; 
+  handleAddUserProfile: (event: FormEvent<HTMLFormElement>) => Promise<void>;
 }
 
 
@@ -27,11 +27,11 @@ const RepositorySearcherContext = createContext<ContextDataRepositorySearcher>(
   {} as ContextDataRepositorySearcher
 );
 
-export function RepositorySearcherProvider({ children }: PropsRepositorySearcher) {
+export function RepositorySearcherProvider({ children }: IPropsRepositorySearcher) {
   const [newIpuntUserName, setNewInputUserName] = useState('');
   const [inputError, setInputError] = useState('');
 
-  const [userRepository, setUserRepository] = useState<UserRepository[]>(() => {
+  const [userRepository, setUserRepository] = useState<IUserRepository[]>(() => {
     const storagedRepositories = localStorage.getItem(
       '@HUBusca:userRepository',
     );
@@ -58,7 +58,7 @@ export function RepositorySearcherProvider({ children }: PropsRepositorySearcher
     }
 
     try {
-      const response = await api.get<UserRepository>
+      const response = await api.get<IUserRepository>
       (`/users/${newIpuntUserName}`);
 
       const userRepo = response.data;
@@ -77,7 +77,7 @@ export function RepositorySearcherProvider({ children }: PropsRepositorySearcher
       newIpuntUserName, 
       inputError, 
       setNewInputUserName, 
-      handleAddUserProfile,  
+      handleAddUserProfile, 
     }}>
       {children}
     </RepositorySearcherContext.Provider>  

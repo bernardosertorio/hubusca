@@ -4,14 +4,41 @@ import { useParams } from 'react-router-dom';
 import { FiChevronRight } from 'react-icons/fi';
 import { UserRepositoryInfo, RepositoriesList, ContentsRepositories } from './styles';
 
-import { useUserProfile } from '../../hooks/useUserProfile';
-
 interface ParamsProps {
   user: string;
 }
 
-export function UserProfile() {
-  const { user, userRepository, loadData } = useUserProfile();
+interface User {
+  avatar_url: string;
+  name: string;
+  login: string;
+  location: string;
+  id: number;
+  followers: number;
+  public_repos: number;
+};
+
+interface UserRepository {
+  id: number;
+  name: string;
+  html_url: string;
+  language: string;
+  description: string;
+  created_at: string;
+  pushed_at: string;
+}
+
+interface IUserProfileProps {
+  user: User | null;
+  userRepository: UserRepository[];
+  loadData: (login: string) => Promise<void>;
+}
+
+export function UserProfile({ 
+  loadData, 
+  user, 
+  userRepository }: IUserProfileProps) {
+
   const { user: login } = useParams<ParamsProps>();
 
   useEffect(() => {
