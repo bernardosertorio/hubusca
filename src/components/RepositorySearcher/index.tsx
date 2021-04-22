@@ -49,9 +49,9 @@ export function RepositorySearcher({
           <Link key={user.login} to={`/users/${user.login}`}>
 
             <button type="button" className="delete-container">
-              <FiX size={20}/>
+              <FiX size={15}/>
             </button>
-            
+
             <img 
               src={user.avatar_url} 
               alt={user.login}
