@@ -74,6 +74,18 @@ export const RepositoryStyles = styled.div`
         margin-left: auto;
         color: black;
     }
+
+    .delete-container {
+    position: absolute;
+    top: 30px;
+    border: 0;
+    background: transparent;
+
+    svg {
+        margin-left: auto;
+        color: black;
+    }
+  }
   }
 `;
 

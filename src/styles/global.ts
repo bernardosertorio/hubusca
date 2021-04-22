@@ -47,16 +47,6 @@ export const GlobalStyle = createGlobalStyle`
     cursor: not-allowed;
   }
 
-  .delete-container {
-    position: absolute;
-    top: 30px;
-
-    svg {
-        margin-left: auto;
-        color: black;
-    }
-  }
-
   #root {
     max-width: 960px;
     margin: 0 auto;
