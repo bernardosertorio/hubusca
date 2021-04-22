@@ -1,10 +1,8 @@
 import { FormEvent } from 'react';
 import { RepositoryStyles } from './styles';
-import { FiChevronRight, FiGlobe } from 'react-icons/fi';
+import { FiChevronRight, FiGlobe, FiX} from 'react-icons/fi';
 import { Form } from '@unform/web';
 import { Link } from 'react-router-dom';
-
-import closeIcon from '../../assets/x.svg';
 
 import Input from '../Input';
 
@@ -49,11 +47,8 @@ export function RepositorySearcher({
 
         {userRepository.map(user => (
           <Link key={user.login} to={`/users/${user.login}`}>
-            <button 
-              type="button" 
-              className="delete-container" 
-              >
-              <img src={closeIcon} alt="Excluir contaienr" />
+            <button type="button" className="delete-container">
+              <FiX size={20}/>
             </button>
             <img 
               src={user.avatar_url} 
