@@ -58,7 +58,6 @@ export const RepositoryStyles = styled.div`
     div {
       margin: 0 16px;
       flex: 1;
-      flex-wrap: wrap;
 
       strong {
         font-size: 20px;
