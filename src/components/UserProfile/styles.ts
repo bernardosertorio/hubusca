@@ -16,6 +16,7 @@ export const UserRepositoryInfo = styled.section`
 
     div {
       margin-left: 24px;
+      flex-wrap: wrap;
 
       strong {
         font-size: 30px;
