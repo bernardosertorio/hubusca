@@ -2,7 +2,7 @@ import { FormEvent } from 'react';
 import { FiGlobe } from 'react-icons/fi';
 import { Form } from '@unform/web';
 import Input from '../Input';
-import { Error, RepositoryStyles } from './styles';
+import { Error, FormSearcherStyles } from './styles';
 
 
 interface IRepositorySearcherProps {
@@ -21,7 +21,7 @@ export function FormSearcher({
 
   return (
     <>
-      <RepositoryStyles>
+      <FormSearcherStyles>
         <Form onSubmit={handleAddUserProfile}>
         <Input 
           name="typedLogin"
@@ -33,7 +33,7 @@ export function FormSearcher({
         </Form>
 
         { inputError && <Error>{inputError}</Error> }
-      </RepositoryStyles>
+      </FormSearcherStyles>
     </>
   );
 }
