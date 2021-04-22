@@ -49,15 +49,11 @@ export const GlobalStyle = createGlobalStyle`
 
   .delete-container {
     position: absolute;
-    left: 30px;
     top: 30px;
-    border: 0;
-    background: transparent;
 
-    transition: filter 0.2s;
-
-    &:hover {
-      filter: brightness(0.8);
+    svg {
+        margin-left: auto;
+        color: black;
     }
   }
 
