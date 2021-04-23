@@ -4,6 +4,18 @@ export const RepositoryStyles = styled.div`
   margin-top: 80px;
   max-width: 700px;
 
+  .delete-container {
+      margin-top: auto;
+      padding: 1px 1px 150px;
+      border: 0;
+      background: transparent;
+
+      svg {
+          margin-left: auto;
+          color: black;
+        }
+      }
+
   a {
     background: #7CFC00;
     border-radius: 5px;
@@ -51,18 +63,6 @@ export const RepositoryStyles = styled.div`
     svg {
         margin-left: auto;
         color: black;
-    }
-
-    .delete-container {
-      margin-top: auto;
-      padding: 1px 1px 150px;
-      border: 0;
-      background: transparent;
-
-      svg {
-          margin-left: auto;
-          color: black;
-        }
     }
   }
 `;
