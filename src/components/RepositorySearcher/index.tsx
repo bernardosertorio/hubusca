@@ -27,14 +27,15 @@ export function RepositorySearcher({
     <> 
       <RepositoryStyles>
         <Link key={repository.login} to={`/users/${repository.login}`}>
-
-          <button 
-            type="button" 
-            className="delete-container"
-            onClick={handleDeleteUserRepository}
-          >
-            <FiX size={15}/>
-          </button>
+          <div>
+            <button 
+                type="button" 
+                className="delete-container"
+                onClick={handleDeleteUserRepository}
+              >
+                <FiX size={15}/>
+              </button>
+          </div>
 
           <img 
             src={repository.avatar_url} 
