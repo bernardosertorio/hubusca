@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const RepositoryStyles = styled.div`
-  margin-top: 80px;
+  margin-top: 16px;
   max-width: 700px;
 
   a {
