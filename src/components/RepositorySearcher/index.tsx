@@ -10,30 +10,17 @@ interface IUserRepository {
 };
 
 interface IRepositorySearcherProps {
-  deleteUserRepository(login: string): Promise<void>; 
   repository: IUserRepository;      
 }
 
 export function RepositorySearcher({ 
-  deleteUserRepository, 
   repository
 }: IRepositorySearcherProps) {
-
-  const handleDeleteUserRepository = () => {
-    deleteUserRepository(repository.login)
-  }
 
   return (
     <> 
       <RepositoryStyles>
         <Link key={repository.login} to={`/users/${repository.login}`}>
-          <button 
-            type="button" 
-            className="delete-container"
-            onClick={handleDeleteUserRepository}
-          >
-            <FiX size={15}/>
-          </button>
           <img 
             src={repository.avatar_url} 
             alt={repository.login}

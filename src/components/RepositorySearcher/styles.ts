@@ -26,18 +26,6 @@ export const RepositoryStyles = styled.div`
       margin-top: 8px;
     }
 
-    .delete-container {
-    margin-top: auto;
-    padding: 1px 1px 150px;
-    border: 0;
-    background: transparent;
-
-    svg {
-        margin-left: auto;
-        color: black;
-      }
-    }
-
     img {
       width: 64px;
       height: 64px;

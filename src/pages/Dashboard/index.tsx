@@ -10,8 +10,7 @@ export function Dashboard() {
     inputError, 
     newIpuntUserName, 
     setNewInputUserName, 
-    userRepository,
-    deleteUserRepository 
+    userRepository, 
   } = useReporitorySearcher();
 
   return (
@@ -26,7 +25,6 @@ export function Dashboard() {
       {userRepository.map(repository => (
         <RepositorySearcher 
           repository={repository}
-          deleteUserRepository={deleteUserRepository} 
         />
       ))}
     </>
