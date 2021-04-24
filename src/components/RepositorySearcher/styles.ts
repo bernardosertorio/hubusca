@@ -23,7 +23,7 @@ export const RepositoryStyles = styled.div`
     }
 
     & + a {
-      margin-top: 12px;
+      margin-top: 8px;
     }
 
     .delete-container {
