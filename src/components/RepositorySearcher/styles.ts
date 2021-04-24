@@ -23,7 +23,7 @@ export const RepositoryStyles = styled.div`
     }
 
     & + a {
-      margin-top: 8px;
+      margin-top: 5px;
     }
 
     img {
