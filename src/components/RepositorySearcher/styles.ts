@@ -8,7 +8,7 @@ export const RepositoryStyles = styled.div`
     background: #7CFC00;
     border-radius: 5px;
     width: 100%;
-    padding: 20px;
+    padding: 15px;
     display: block;
     flex-wrap: wrap;
     text-decoration: none;
