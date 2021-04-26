@@ -9,12 +9,11 @@ export const RepositoryStyles = styled.div`
     border-radius: 5px;
     width: 100%;
     padding: 15px;
-    display: block;
+    display: flex;
     flex-wrap: wrap;
     text-decoration: none;
     margin-top: 80px;
 
-    display: flex;
     align-items: center;
     transition: transform 0.2s;
 

@@ -1,5 +1,5 @@
 import { RepositoryStyles } from './styles';
-import { FiChevronRight, FiX} from 'react-icons/fi';
+import { FiChevronRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
 interface IUserRepository {
