@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const RepositoryStyles = styled.div`
+  margin-top: 80px;
   max-width: 700px;
 
   a {
@@ -8,11 +9,11 @@ export const RepositoryStyles = styled.div`
     border-radius: 5px;
     width: 100%;
     padding: 15px;
-    display: flex;
+    display: block;
     flex-wrap: wrap;
     text-decoration: none;
-    margin-top: 80px;
 
+    display: flex;
     align-items: center;
     transition: transform 0.2s;
 
@@ -20,7 +21,7 @@ export const RepositoryStyles = styled.div`
       transform: translateX(10px);
     }
 
-    &:a {
+    & + a {
       margin-top: 8px;
     }
 
