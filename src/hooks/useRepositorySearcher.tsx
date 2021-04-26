@@ -57,6 +57,11 @@ export function RepositorySearcherProvider({ children }: IPropsRepositorySearche
       return;
     }
 
+    if (userRepository.find(user => user.login === newIpuntUserName)) {
+      setInputError('Usuário já encontrado!')
+      return;
+    }
+
     try {
       const response = await api.get<IUserRepository>
       (`/users/${newIpuntUserName}`);
