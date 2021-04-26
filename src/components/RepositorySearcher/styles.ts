@@ -4,10 +4,6 @@ export const RepositoryStyles = styled.div`
   margin-top: 80px;
   max-width: 700px;
 
-  a + a {
-    margin-top: 16px;
-  }
-
   a {
     background: #7CFC00;
     border-radius: 5px;
@@ -23,6 +19,10 @@ export const RepositoryStyles = styled.div`
 
     &:hover {
       transform: translateX(10px);
+    }
+
+    & + a {
+      margin-top: 16px;
     }
 
     img {
