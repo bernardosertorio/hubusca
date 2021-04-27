@@ -1,28 +1,27 @@
 import styled from 'styled-components';
 
 export const RepositoryStyles = styled.div`
-  margin-top: 80px;
   max-width: 700px;
+  margin-top: 80px;
+
+  & + div {
+    margin-top: 16px;
+  }
 
   a {
     background: #7CFC00;
     border-radius: 5px;
     width: 100%;
     padding: 15px;
-    display: block;
+    display: flex;
     flex-wrap: wrap;
     text-decoration: none;
 
-    display: flex;
     align-items: center;
     transition: transform 0.2s;
 
     &:hover {
       transform: translateX(10px);
-    }
-
-    & + a {
-      margin-top: 16px;
     }
 
     img {
