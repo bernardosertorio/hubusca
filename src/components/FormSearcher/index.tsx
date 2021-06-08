@@ -7,16 +7,16 @@ import { Error, FormSearcherStyles } from './styles';
 
 interface IRepositorySearcherProps {
   handleAddUserProfile: (event: FormEvent<HTMLFormElement>) => Promise<void>;
-  setNewInputUserName: React.Dispatch<React.SetStateAction<string>>; 
+  setNewInputUserLogin: React.Dispatch<React.SetStateAction<string>>; 
   inputError: string; 
-  newIpuntUserName: string;    
+  newIpuntUserLogin: string;    
 }
 
 export function FormSearcher({ 
   handleAddUserProfile, 
   inputError, 
-  newIpuntUserName, 
-  setNewInputUserName,
+  newIpuntUserLogin, 
+  setNewInputUserLogin,
 }: IRepositorySearcherProps) {
 
   return (
@@ -26,8 +26,8 @@ export function FormSearcher({
         <Input 
           name="typedLogin"
           icon={FiGlobe}
-          value={newIpuntUserName}
-          onChange={(e) => setNewInputUserName(e.target.value)}
+          value={newIpuntUserLogin}
+          onChange={(e) => setNewInputUserLogin(e.target.value)}
           placeholder="Digite o login do usuário" />
           <button type="submit">Pesquisar</button>
         </Form>

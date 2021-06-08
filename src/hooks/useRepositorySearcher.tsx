@@ -1,5 +1,4 @@
-import { createContext, ReactNode, useContext, useEffect } from 'react';
-import { useState, FormEvent } from 'react';
+import { createContext, ReactNode, useContext, useEffect, useState, FormEvent } from 'react';
 
 import api from '../services/api';
 
@@ -15,10 +14,10 @@ interface IUserRepository {
 };
 
 interface ContextDataRepositorySearcher {
-  newIpuntUserName: string;
+  newIpuntUserLogin: string;
   userRepository: IUserRepository[];
   inputError: string;
-  setNewInputUserName: React.Dispatch<React.SetStateAction<string>>;
+  setNewInputUserLogin: React.Dispatch<React.SetStateAction<string>>;
   handleAddUserProfile: (event: FormEvent<HTMLFormElement>) => Promise<void>;
 }
 
@@ -28,7 +27,7 @@ const RepositorySearcherContext = createContext<ContextDataRepositorySearcher>(
 );
 
 export function RepositorySearcherProvider({ children }: IPropsRepositorySearcher) {
-  const [newIpuntUserName, setNewInputUserName] = useState('');
+  const [newIpuntUserLogin, setNewInputUserLogin] = useState('');
   const [inputError, setInputError] = useState('');
 
   const [userRepository, setUserRepository] = useState<IUserRepository[]>(() => {
@@ -52,24 +51,24 @@ export function RepositorySearcherProvider({ children }: IPropsRepositorySearche
 
   async function handleAddUserProfile(event: FormEvent<HTMLFormElement>)
   : Promise<void> {
-    if(!newIpuntUserName) {
+    if(!newIpuntUserLogin) {
       setInputError('Digite o nome de um usuário')
       return;
     }
 
-    if (userRepository.find(user => user.login === newIpuntUserName)) {
+    if (userRepository.find(user => user.login === newIpuntUserLogin)) {
       setInputError('Usuário já encontrado!')
       return;
     }
 
     try {
       const response = await api.get<IUserRepository>
-      (`/users/${newIpuntUserName}`);
+      (`/users/${newIpuntUserLogin}`);
 
       const userRepo = response.data;
 
       setUserRepository([...userRepository, userRepo]);
-      setNewInputUserName('');
+      setNewInputUserLogin('');
       setInputError('');
     } catch (err) {
       setInputError('Erro na busca do usuário. Verifique se o nome está correto');
@@ -79,9 +78,9 @@ export function RepositorySearcherProvider({ children }: IPropsRepositorySearche
   return (
     <RepositorySearcherContext.Provider value={{ 
       userRepository, 
-      newIpuntUserName, 
+      newIpuntUserLogin, 
       inputError, 
-      setNewInputUserName, 
+      setNewInputUserLogin, 
       handleAddUserProfile, 
     }}>
       {children}

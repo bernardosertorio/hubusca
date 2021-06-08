@@ -8,8 +8,8 @@ export function Dashboard() {
   const { 
     handleAddUserProfile, 
     inputError, 
-    newIpuntUserName, 
-    setNewInputUserName, 
+    newIpuntUserLogin, 
+    setNewInputUserLogin, 
     userRepository, 
   } = useReporitorySearcher();
 
@@ -19,8 +19,8 @@ export function Dashboard() {
       <FormSearcher
        handleAddUserProfile={handleAddUserProfile}
        inputError={inputError}
-       newIpuntUserName={newIpuntUserName}
-       setNewInputUserName={setNewInputUserName}
+       newIpuntUserLogin={newIpuntUserLogin}
+       setNewInputUserLogin={setNewInputUserLogin}
       />
       {userRepository.map(repository => (
         <RepositorySearcher 
